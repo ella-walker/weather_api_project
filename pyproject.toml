@@ -5,9 +5,12 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "bs4",
     "ipykernel>=7.1.0",
+    "lxml",
+    "matplotlib>=3.10.7",
     "pandas>=2.3.3",
     "python-dotenv>=1.2.1",
     "requests>=2.32.5",
-    "time",
+    "seaborn>=0.13.2",
 ]
