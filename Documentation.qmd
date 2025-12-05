@@ -3,3 +3,97 @@ title: "Documentation"
 ---
 
 Functions:
+
+---
+title: "Documentation"
+format: html
+---
+
+# Package Functions
+
+This page documents all functions included in our Python package.  
+The functions are grouped into two modules:
+
+- `cleaning.py` — scraping and cleaning raw ski resort data  
+- `analysis.py` — analysis utilities for summary statistics and visualizations  
+
+
+---
+
+# ## Cleaning Module (`cleaning.py`)
+
+## `fetch_raw_table(url, email)`
+Scrapes the Wikipedia ski resort comparison table and returns the raw (uncleaned) DataFrame.
+
+**Arguments**
+- `url`: The Wikipedia page URL  
+- `email`: Your contact email for the scraper’s User-Agent  
+
+**Returns**
+- Raw `pandas.DataFrame` containing the table data  
+
+
+---
+
+## `remove_brackets(text)`
+Removes bracketed citations (e.g., `[3]`) from text fields.
+
+**Arguments**
+- `text`: A string containing bracketed citation text  
+
+**Returns**
+- Cleaned string with citations removed  
+
+
+---
+
+## `clean_numeric(val)`
+Removes non-numeric characters (commas, text, units) and converts values to float.
+
+**Arguments**
+- `val`: A string or number to clean  
+
+**Returns**
+- `float` value or `NaN`  
+
+
+---
+
+## `convert_numeric_columns(df, numeric_cols)`
+Converts an entire list of columns to numeric using `clean_numeric()`.
+
+**Arguments**
+- `df`: DataFrame to modify  
+- `numeric_cols`: List of columns to convert  
+
+**Returns**
+- Updated DataFrame with numeric columns  
+
+
+---
+
+## `run_cleaning_pipeline(url, email)`
+Runs the complete cleaning pipeline:
+
+1. Scrapes the Wikipedia table  
+2. Drops unnecessary columns  
+3. Renames columns  
+4. Removes missing snowfall rows  
+5. Cleans string columns  
+6. Converts numeric columns  
+
+**Arguments**
+- `url`: Wikipedia ski resorts comparison URL  
+- `email`: Contact email for scraper  
+
+**Returns**
+- Clean, analysis-ready DataFrame  
+
+**Example**
+```python
+from snowpack.cleaning import run_cleaning_pipeline
+
+df = run_cleaning_pipeline(
+    url="https://en.wikipedia.org/wiki/Comparison_of_North_American_ski_resorts",
+    email="example@byu.edu"
+)
