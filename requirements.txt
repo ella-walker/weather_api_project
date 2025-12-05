@@ -1,0 +1,8 @@
+pandas
+matplotlib
+seaborn
+numpy
+streamlit
+bs4
+requests
+lxml
