@@ -1,0 +1,20 @@
+---
+title: "Getting Started"
+jupyter: python3
+---
+
+Here is how you use my package:
+
+```{python}
+from final_project_demo import add
+
+print(add(2, 19))
+```
+
+
+```{python}
+from final_project_demo import run_analysis_pipeline, run_cleaning_pipeling
+
+run_cleaning_pipeling()
+run_analysis_pipeline()
+```
