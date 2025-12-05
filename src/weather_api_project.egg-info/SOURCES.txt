@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+src/weather_api_project.egg-info/PKG-INFO
+src/weather_api_project.egg-info/SOURCES.txt
+src/weather_api_project.egg-info/dependency_links.txt
+src/weather_api_project.egg-info/requires.txt
+src/weather_api_project.egg-info/top_level.txt
+src/weather_package/__init__.py
+src/weather_package/analysis.py
+src/weather_package/app.py
+src/weather_package/cleaning.py
+tests/test_analysis.py
+tests/test_cleaning.py
