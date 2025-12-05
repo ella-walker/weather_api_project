@@ -97,3 +97,82 @@ df = run_cleaning_pipeline(
     url="https://en.wikipedia.org/wiki/Comparison_of_North_American_ski_resorts",
     email="example@byu.edu"
 )
+
+
+📄 Analysis Module Documentation (analysis.py)
+Overview
+The analysis.py script provides all visualization and exploratory data analysis (EDA) functions for the Ski Resort Snowfall Analysis project. These functions generate plots, convert snowfall values to numeric, assign geographic regions, and run a full analysis pipeline.
+
+Functions
+
+### convert_snowfall_to_numeric(df)
+Description:
+Converts the Average Annual Snowfall (inches) column to a numeric data type. Invalid values are coerced to NaN.
+Parameters:
+    •    df (DataFrame): Input ski resort dataset.
+Returns:
+    •    DataFrame with the converted numeric snowfall column.
+
+### plot_snowfall_distribution(df)
+Description:
+Plots a histogram + KDE curve of the distribution of annual snowfall across all resorts.
+Parameters:
+    •    df (DataFrame): Dataset containing snowfall values.
+Returns:
+    •    None (displays plot).
+
+### assign_regions(df)
+Description:
+Maps each U.S. state or Canadian province into a geographic region (e.g., "Western US", "Eastern Canada").
+Parameters:
+    •    df (DataFrame): Dataset with State/Province column.
+Returns:
+    •    DataFrame with a new Region column.
+
+### plot_snowfall_by_region(df)
+Description:
+Creates a boxplot showing snowfall distributions across geographic regions.
+Parameters:
+    •    df (DataFrame): Dataset containing Region and snowfall values.
+Returns:
+    •    None (displays plot).
+
+### plot_top10_resorts(df)
+Description:
+Displays a horizontal barplot of the top 10 snowiest ski resorts based on average annual snowfall.
+Parameters:
+    •    df (DataFrame): Dataset containing snowfall values.
+Returns:
+    •    None (displays plot).
+
+### plot_state_average_snowfall(df)
+Description:
+Computes mean snowfall per state/province and plots the results in descending order.
+Parameters:
+    •    df (DataFrame): Dataset containing state/province and snowfall values.
+Returns:
+    •    None (displays plot).
+
+### plot_snowfall_vs_elevation(df)
+Description:
+Creates a scatterplot showing the relationship between peak elevation and annual snowfall.
+Top 5 snowiest resorts are labeled.
+Parameters:
+    •    df (DataFrame): Dataset containing elevation and snowfall.
+Returns:
+    •    None (displays plot).
+
+### run_analysis_pipeline(df)
+Description:
+Runs the full analysis pipeline, including:
+    •    Converting snowfall to numeric
+    •    Assigning geographic regions
+    •    Plotting snowfall distribution
+    •    Plotting snowfall by region
+    •    Plotting top 10 resorts
+    •    Plotting state averages
+    •    Plotting snowfall vs. elevation
+Parameters:
+    •    df (DataFrame): Cleaned ski resort dataset.
+Returns:
+    •    DataFrame after all transformations (snowfall numeric, region assigned).
