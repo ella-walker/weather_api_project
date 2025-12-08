@@ -5,14 +5,28 @@ import seaborn as sns
 sns.set(style="whitegrid")
 
 # ---------------------------------------------------------
-# Helper: Convert snowfall column to numeric
+# Helper: Convert columns to numeric
 # ---------------------------------------------------------
-def convert_snowfall_to_numeric(df):
-    df["Average Annual Snowfall (inches)"] = pd.to_numeric(
-        df["Average Annual Snowfall (inches)"], errors="coerce"
-    )
+def convert_numeric_columns(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Convert all numeric columns to numeric types (int or float).
+    Non-numeric values will be coerced to NaN.
+    """
+    numeric_cols = [
+        "Peak elevation (ft)",
+        "Base elevation (ft)",
+        "Vertical drop (ft)",
+        "Skiable acreage",
+        "Total trails",
+        "Total lifts",
+        "Average annual snowfall (in)",
+    ]
+    
+    for col in numeric_cols:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+    
     return df
-
 
 # ---------------------------------------------------------
 # Helper: Histogram of snowfall
@@ -197,7 +211,7 @@ def plot_snowfall_vs_elevation(df):
 def run_analysis_pipeline(df):
     print("Running analysis pipeline...")
 
-    df = convert_snowfall_to_numeric(df)
+    df = convert_numeric_columns(df)
     df = assign_regions(df)
 
     plot_snowfall_distribution(df)
