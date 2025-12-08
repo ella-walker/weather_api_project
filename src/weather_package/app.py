@@ -1,5 +1,3 @@
-"""Toy Streamlit app students can customize for STAT 386 projects."""
-
 from __future__ import annotations
 
 import io
