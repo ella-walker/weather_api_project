@@ -6,3 +6,4 @@ streamlit
 bs4
 requests
 lxml
+weather_package
