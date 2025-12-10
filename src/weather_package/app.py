@@ -38,8 +38,6 @@ def main() -> None:
         dataset_choice = st.selectbox("Dataset", ["Ski Resort Data", "Upload CSV"])
         show_cleaning = st.checkbox("Preview cleaning pipeline output")
         show_analysis = st.checkbox("Preview analysis pipeline output")
-        a = st.number_input("Toy add() input A", value=1)
-        b = st.number_input("Toy add() input B", value=2)
 
     if dataset_choice == "Ski Resort Data":
         df = ski_resorts()
@@ -54,12 +52,6 @@ def main() -> None:
     st.subheader("Data Preview")
     st.dataframe(df, use_container_width=True)
 
-    st.subheader("Quick Math Sandbox")
-    st.write(
-        "The package's `add` helper is wired up below so students can see how to surface custom utilities."
-    )
-    st.metric(label="add(a, b)", value=add(a, b))
-
     if show_cleaning:
         st.subheader("Cleaning Pipeline Output")
         cleaning_output = _run_with_capture(
@@ -68,19 +60,66 @@ def main() -> None:
                 email="wella2@byu.edu"
             ))
         st.code(cleaning_output or "run_cleaning_pipeline() did not emit text.")
-        st.caption("Replace run_cleaning_pipeline with your real preprocessing logic.")
+        st.caption("Here we are cleaning the data")
 
     if show_analysis:
         st.subheader("Analysis Pipeline Output")
         analysis_output = _run_with_capture(
-            lambda: run_analysis_pipeline(df))
+            lambda: run_analysis_pipeline(cleaning_output))
         st.code(analysis_output or "run_analysis_pipeline() did not emit text.")
-        st.caption("Swap this stub with charts, metrics, or model diagnostics from your project.")
+        st.caption("Here we are analyzing the data")
 
-    st.info(
-        "Next steps: customize the sidebar controls, drop in Streamlit charts (st.bar_chart, st.map, etc.), "
-        "and layer in explanations so stakeholders can self-serve results."
-    )
+        st.subheader("Exploratory Data Analysis")
+
+        # --- 1. Annual Snowfall by State ---
+        st.write("### Annual Snowfall by State")
+        st.markdown("""
+        This plot shows the average annual snowfall across all U.S. states and Canadian provinces in our dataset.  
+        Western regions—especially Utah and Washington—receive significantly more snowfall, which aligns with 
+        mountainous terrain and favorable winter climate patterns.
+        """)
+        st.image("plots/annual_snowfall.png", use_container_width=True)
+
+        # --- 2. Snowfall Distribution ---
+        st.write("### Distribution of Annual Snowfall")
+        st.markdown("""
+        This histogram shows how snowfall is distributed across all ski resorts.  
+        Most resorts fall between moderate snowfall ranges, but a few extremely snowy resorts 
+        create a long right-tail in the distribution.
+        """)
+        st.image("plots/distribution_snowfall.png", use_container_width=True)
+
+        # --- 3. Elevation vs Snowfall ---
+        st.write("### Peak Elevation vs Snowfall")
+        st.markdown("""
+        Higher-elevation resorts tend to receive more snowfall.  
+        This scatterplot shows a moderate positive relationship between peak elevation and annual snowfall.  
+        This suggests that elevation plays a meaningful role in driving winter precipitation.
+        """)
+        st.image("plots/peak_elevation.png", use_container_width=True)
+
+        # --- 4. Snowfall Boxplot ---
+        st.write("### Snowfall Distribution by Resort")
+        st.markdown("""
+        This boxplot summarizes snowfall variability across all resorts.  
+        The wide spread indicates strong differences between low-snow and high-snow regions, with 
+        several notable outliers that receive exceptionally high snowfall.
+        """)
+        st.image("plots/boxplot.png", use_container_width=True)
+
+        # --- 5. Correlation Heatmap ---
+        st.write("### Correlation Heatmap")
+        st.markdown("""
+        The correlation matrix reveals relationships among numeric features.  
+        Peak elevation has one of the strongest positive correlations with annual snowfall, 
+        supporting our earlier findings. Other resort characteristics show weaker relationships.
+        """)
+        st.image("plots/correlation_heatmap.png", use_container_width=True)
+
+        st.info(
+            "Next steps: customize the sidebar controls, drop in Streamlit charts (st.bar_chart, st.map, etc.), "
+            "and layer in explanations so stakeholders can self-serve results."
+        )
 
 
 if __name__ == "__main__":
