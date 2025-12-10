@@ -11,7 +11,7 @@ from weather_package import run_cleaning_pipeline, run_analysis_pipeline
 
 def ski_resorts() -> pd.DataFrame:
     """Load in our ski resort data."""
-    return pd.read_csv("src/weather_package/ski_resorts.csv")
+    return pd.read_csv("weather_package/ski_resorts.csv")
 
 df = ski_resorts()
 
