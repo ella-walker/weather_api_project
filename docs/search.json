@@ -159,5 +159,12 @@
     "title": "Documentation",
     "section": "run_analysis_pipeline(df)",
     "text": "run_analysis_pipeline(df)\nRuns the full analysis pipeline: 1. Converts snowfall to numeric 2. Assigns geographic regions 3. Plots snowfall distribution 4. Plots snowfall by region 5. Plots top 10 resorts 6. Plots state averages 7. Plots snowfall vs. elevation\nArguments - df: Cleaned ski resort dataset\nReturns - DataFrame after all analysis-ready transformations (numeric snowfall + region assigned)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "My Python Package!",
+    "section": "",
+    "text": "Here is a website all about my package for STAT 386!\nDocumentation here.\nGet started here.\nReview the technical report."
   }
 ]
