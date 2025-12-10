@@ -13,13 +13,13 @@ def convert_numeric_columns(df: pd.DataFrame) -> pd.DataFrame:
     Non-numeric values will be coerced to NaN.
     """
     numeric_cols = [
-        "Peak elevation (ft)",
-        "Base elevation (ft)",
-        "Vertical drop (ft)",
-        "Skiable acreage",
-        "Total trails",
-        "Total lifts",
-        "Average annual snowfall (in)",
+        "Peak Elevation (ft)",
+        "Base Elevation (ft)",
+        "Vertical Drop (ft)",
+        "Skiable Area (acres)",
+        "Total Trails",
+        "Total Lifts",
+        "Average Annual Snowfall (inches)",
     ]
     
     for col in numeric_cols:
