@@ -6,7 +6,8 @@ from contextlib import redirect_stdout
 import pandas as pd
 import streamlit as st
 
-from weather_package import run_analysis_pipeline, run_cleaning_pipeline
+from weather_package.cleaning import run_cleaning_pipeline
+from weather_package.analysis import run_analysis_pipeline
 
 
 def ski_resorts() -> pd.DataFrame:
