@@ -36,8 +36,8 @@ def main() -> None:
     with st.sidebar:
         st.header("Controls")
         dataset_choice = st.selectbox("Dataset", ["Ski Resort Data", "Upload CSV"])
-        show_cleaning = st.checkbox("Preview cleaning pipeline output")
-        show_analysis = st.checkbox("Preview analysis pipeline output")
+        show_cleaning = st.checkbox("Cleaning pipeline output")
+        show_analysis = st.checkbox("Analysis pipeline output")
 
     if dataset_choice == "Ski Resort Data":
         df = ski_resorts()
@@ -54,72 +54,100 @@ def main() -> None:
 
     if show_cleaning:
         st.subheader("Cleaning Pipeline Output")
-        cleaning_output = _run_with_capture(
-            lambda: run_cleaning_pipeline(
-                url="https://en.wikipedia.org/wiki/Comparison_of_North_American_ski_resorts",
-                email="wella2@byu.edu"
-            ))
-        st.code(cleaning_output or "run_cleaning_pipeline() did not emit text.")
+
+        cleaned_df = run_cleaning_pipeline(
+            url="https://en.wikipedia.org/wiki/Comparison_of_North_American_ski_resorts",
+            email="wella2@byu.edu"
+        )
+
+        st.dataframe(cleaned_df)
         st.caption("Here we are cleaning the data")
 
     if show_analysis:
-        st.subheader("Analysis Pipeline Output")
-        analysis_output = _run_with_capture(
-            lambda: run_analysis_pipeline(cleaning_output))
-        st.code(analysis_output or "run_analysis_pipeline() did not emit text.")
-        st.caption("Here we are analyzing the data")
+        if 'cleaned_df' not in locals():
+            st.error("You must run the cleaning step before analysis.")
+        else:
+            analysis_output = _run_with_capture(
+                lambda: run_analysis_pipeline(cleaned_df)
+            )
+            st.code(analysis_output or "No text emitted.")
 
-        st.subheader("Exploratory Data Analysis")
-
-        # --- 1. Annual Snowfall by State ---
-        st.write("### Annual Snowfall by State")
-        st.markdown("""
-        This plot shows the average annual snowfall across all U.S. states and Canadian provinces in our dataset.  
-        Western regions—especially Utah and Washington—receive significantly more snowfall, which aligns with 
-        mountainous terrain and favorable winter climate patterns.
-        """)
-        st.image("plots/annual_snowfall.png", use_container_width=True)
-
-        # --- 2. Snowfall Distribution ---
-        st.write("### Distribution of Annual Snowfall")
-        st.markdown("""
-        This histogram shows how snowfall is distributed across all ski resorts.  
-        Most resorts fall between moderate snowfall ranges, but a few extremely snowy resorts 
-        create a long right-tail in the distribution.
-        """)
-        st.image("plots/distribution_snowfall.png", use_container_width=True)
-
-        # --- 3. Elevation vs Snowfall ---
-        st.write("### Peak Elevation vs Snowfall")
-        st.markdown("""
-        Higher-elevation resorts tend to receive more snowfall.  
-        This scatterplot shows a moderate positive relationship between peak elevation and annual snowfall.  
-        This suggests that elevation plays a meaningful role in driving winter precipitation.
-        """)
-        st.image("plots/peak_elevation.png", use_container_width=True)
-
-        # --- 4. Snowfall Boxplot ---
+        # --- 1. Snowfall Boxplot ---
         st.write("### Snowfall Distribution by Resort")
         st.markdown("""
-        This boxplot summarizes snowfall variability across all resorts.  
-        The wide spread indicates strong differences between low-snow and high-snow regions, with 
-        several notable outliers that receive exceptionally high snowfall.
+        Western Canada experience substantially higher snowfall than other regions, 
+        while the Midwest and the Southeastern United States receive the least. 
+        These patterns are consistent with geographic and climatic expectations: 
+        western regions contain more mountainous terrain that promotes orographic precipitation, 
+        whereas southern regions have warmer temperatures due to their lower latitudes, 
+        resulting in reduced snowfall.
         """)
-        st.image("plots/boxplot.png", use_container_width=True)
+        st.image("plots_2/boxplot.png", use_container_width=True)
 
-        # --- 5. Correlation Heatmap ---
+        # --- 2. Correlation Heatmap ---
         st.write("### Correlation Heatmap")
         st.markdown("""
-        The correlation matrix reveals relationships among numeric features.  
-        Peak elevation has one of the strongest positive correlations with annual snowfall, 
-        supporting our earlier findings. Other resort characteristics show weaker relationships.
+        We were also curious about the correlation between certain numeric features of the data, 
+        total trails, total lifts, and average snowfall. We can see a high positive correlation 
+        between the number of trails and number of lifts. That makes sense, considering the 
+        structure of a ski resort. There is a moderate correlation between total trails and 
+        average snow fall.
         """)
-        st.image("plots/correlation_heatmap.png", use_container_width=True)
+        st.image("plots_2/correlation_heatmap.png", use_container_width=True)
 
-        st.info(
-            "Next steps: customize the sidebar controls, drop in Streamlit charts (st.bar_chart, st.map, etc.), "
-            "and layer in explanations so stakeholders can self-serve results."
-        )
+        # --- 3. Snowfall Distribution ---
+        st.write("### Distribution of Annual Snowfall")
+        st.markdown("""
+        We looked at the distribution of snowfall for the top 20 ski resorts with the highest 
+        snowfall. This is left skewed where there are a few resorts that receive an unusually 
+        high level of snowfall on average.
+        """)
+        st.image("plots_2/distribution_snowfall.png", use_container_width=True)
+
+        # --- 4. Top 10 Resorts ---
+        st.write("### Top 10 Resorts by Average Annual Snowfall")
+        st.markdown("""
+        We then looked at the top 10 resorts that had the highest peak elevation. 
+        Nine out of the top 10 resorts were in Colorado. This was a really interesting finding. 
+        It seems to be that Colorado has the steepest terrain. The peak elevation was ~ 12,000 - 13,000 
+        for these Colorado resorts. For these resorts, the average annual snowfall ranged from 235 
+        to 450 inches. It seems that these resorts that have high elevation also have higher average 
+        annual snowfall.  
+        After looking at the top 10 resorts for elevation, we were curious to see the top 10 resorts 
+        for average annual snowfall. The top resort was Alyeska Resort in Alaska with an average 
+        of 643 inches of snowfall each year. From these top 10 resorts, 3 of them were from Utah 
+        (Alta, Brighton, & Snowbird)
+        """)
+        st.image("plots_2/annual_snowfall.png", use_container_width=True)
+        
+        # --- 5. Annual Snowfall by State ---
+        st.write("### Annual Snowfall by State")
+        st.markdown("""
+        To explore geographic differences in snowfall, we examined the Average Annual Snowfall 
+        (inches) column alongside the State/Province column. We created a bar plot that displays 
+        each state or province ranked by the snowfall values reported in our dataset. From this 
+        visualization, Utah shows the highest average annual snowfall in our dataset, followed 
+        by Washington and California. These rankings come directly from the average snowfall 
+        values listed for the resorts located in each region. This plot provides a quick snapshot 
+        of how snowfall conditions vary across different areas and highlights which regions tend 
+        to have resorts with the largest reported snowfall amounts.
+        """)
+        st.image("plots_2/annual_snowfall.png", use_container_width=True)
+
+        # --- 6. Elevation vs Snowfall ---
+        st.write("### Peak Elevation vs Snowfall")
+        st.markdown("""
+        Next, we were interested to see how peak elevation and average snowfall are correlated. 
+        The scatterplot comparing average annual snowfall to peak elevation reveals a clear 
+        upward trend: resorts situated at higher elevations generally experience greater snowfall. 
+        While the relationship is not perfectly linear—there is still noticeable spread at each 
+        elevation level—the overall pattern suggests that elevation plays a meaningful role in 
+        increasing snowfall totals. Higher-altitude resorts likely benefit from colder temperatures 
+        and more favorable atmospheric conditions for sustained snowfall, which contributes to the 
+        positive trend observed in the plot. This pattern supports the idea that elevation is an 
+        important environmental factor influencing resort-level snow accumulation.
+        """)
+        st.image("plots_2/peak_elevation.png", use_container_width=True)
 
 
 if __name__ == "__main__":
