@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.24">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Documentation – website</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-5b4ad623e5705c0698d39aec6f10cf02.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">website</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./Documentation.html" aria-current="page"> 
+<span class="menu-text">Documentation</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Tutorial.html"> 
+<span class="menu-text">Tutorial</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./TechnicalReport.html"> 
+<span class="menu-text">Technical Report</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#package-functions" id="toc-package-functions" class="nav-link active" data-scroll-target="#package-functions">Package Functions</a></li>
+  <li><a href="#cleaning-module-cleaning.py" id="toc-cleaning-module-cleaning.py" class="nav-link" data-scroll-target="#cleaning-module-cleaning.py">## Cleaning Module (<code>cleaning.py</code>)</a>
+  <ul class="collapse">
+  <li><a href="#fetch_raw_tableurl-email" id="toc-fetch_raw_tableurl-email" class="nav-link" data-scroll-target="#fetch_raw_tableurl-email"><code>fetch_raw_table(url, email)</code></a></li>
+  <li><a href="#remove_bracketstext" id="toc-remove_bracketstext" class="nav-link" data-scroll-target="#remove_bracketstext"><code>remove_brackets(text)</code></a></li>
+  <li><a href="#clean_numericval" id="toc-clean_numericval" class="nav-link" data-scroll-target="#clean_numericval"><code>clean_numeric(val)</code></a></li>
+  <li><a href="#convert_numeric_columnsdf-numeric_cols" id="toc-convert_numeric_columnsdf-numeric_cols" class="nav-link" data-scroll-target="#convert_numeric_columnsdf-numeric_cols"><code>convert_numeric_columns(df, numeric_cols)</code></a></li>
+  <li><a href="#run_cleaning_pipelineurl-email" id="toc-run_cleaning_pipelineurl-email" class="nav-link" data-scroll-target="#run_cleaning_pipelineurl-email"><code>run_cleaning_pipeline(url, email)</code></a></li>
+  </ul></li>
+  <li><a href="#analysis-module-analysis.py" id="toc-analysis-module-analysis.py" class="nav-link" data-scroll-target="#analysis-module-analysis.py">###Analysis Module (<code>analysis.py</code>)</a>
+  <ul class="collapse">
+  <li><a href="#convert_snowfall_to_numericdf" id="toc-convert_snowfall_to_numericdf" class="nav-link" data-scroll-target="#convert_snowfall_to_numericdf">convert_snowfall_to_numeric(df)</a></li>
+  <li><a href="#plot_snowfall_distributiondf" id="toc-plot_snowfall_distributiondf" class="nav-link" data-scroll-target="#plot_snowfall_distributiondf">plot_snowfall_distribution(df)</a></li>
+  <li><a href="#assign_regionsdf" id="toc-assign_regionsdf" class="nav-link" data-scroll-target="#assign_regionsdf">assign_regions(df)</a></li>
+  <li><a href="#plot_snowfall_by_regiondf" id="toc-plot_snowfall_by_regiondf" class="nav-link" data-scroll-target="#plot_snowfall_by_regiondf">plot_snowfall_by_region(df)</a></li>
+  <li><a href="#plot_top10_resortsdf" id="toc-plot_top10_resortsdf" class="nav-link" data-scroll-target="#plot_top10_resortsdf">plot_top10_resorts(df)</a></li>
+  <li><a href="#plot_state_average_snowfalldf" id="toc-plot_state_average_snowfalldf" class="nav-link" data-scroll-target="#plot_state_average_snowfalldf">plot_state_average_snowfall(df)</a></li>
+  <li><a href="#plot_snowfall_vs_elevationdf" id="toc-plot_snowfall_vs_elevationdf" class="nav-link" data-scroll-target="#plot_snowfall_vs_elevationdf">plot_snowfall_vs_elevation(df)</a></li>
+  <li><a href="#run_analysis_pipelinedf" id="toc-run_analysis_pipelinedf" class="nav-link" data-scroll-target="#run_analysis_pipelinedf">run_analysis_pipeline(df)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Documentation</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="package-functions" class="level1">
+<h1>Package Functions</h1>
+<p>This page documents all functions included in our Python package.&nbsp;&nbsp; The functions are grouped into two modules:</p>
+<ul>
+<li><code>cleaning.py</code> — scraping and cleaning raw ski resort data&nbsp;&nbsp;</li>
+<li><code>analysis.py</code> — analysis utilities for summary statistics and visualizations&nbsp;&nbsp;</li>
+</ul>
+<hr>
+</section>
+<section id="cleaning-module-cleaning.py" class="level1">
+<h1>## Cleaning Module (<code>cleaning.py</code>)</h1>
+<section id="fetch_raw_tableurl-email" class="level2">
+<h2 class="anchored" data-anchor-id="fetch_raw_tableurl-email"><code>fetch_raw_table(url, email)</code></h2>
+<p>Scrapes the Wikipedia ski resort comparison table and returns the raw (uncleaned) DataFrame.</p>
+<p><strong>Arguments</strong> - <code>url</code>: The Wikipedia page URL&nbsp;&nbsp; - <code>email</code>: Your contact email for the scraper’s User-Agent&nbsp;&nbsp;</p>
+<p><strong>Returns</strong> - Raw <code>pandas.DataFrame</code> containing the table data&nbsp;&nbsp;</p>
+<hr>
+</section>
+<section id="remove_bracketstext" class="level2">
+<h2 class="anchored" data-anchor-id="remove_bracketstext"><code>remove_brackets(text)</code></h2>
+<p>Removes bracketed citations (e.g., <code>[3]</code>) from text fields.</p>
+<p><strong>Arguments</strong> - <code>text</code>: A string containing bracketed citation text&nbsp;&nbsp;</p>
+<p><strong>Returns</strong> - Cleaned string with citations removed&nbsp;&nbsp;</p>
+<hr>
+</section>
+<section id="clean_numericval" class="level2">
+<h2 class="anchored" data-anchor-id="clean_numericval"><code>clean_numeric(val)</code></h2>
+<p>Removes non-numeric characters (commas, text, units) and converts values to float.</p>
+<p><strong>Arguments</strong> - <code>val</code>: A string or number to clean&nbsp;&nbsp;</p>
+<p><strong>Returns</strong> - <code>float</code> value or <code>NaN</code>&nbsp;&nbsp;</p>
+<hr>
+</section>
+<section id="convert_numeric_columnsdf-numeric_cols" class="level2">
+<h2 class="anchored" data-anchor-id="convert_numeric_columnsdf-numeric_cols"><code>convert_numeric_columns(df, numeric_cols)</code></h2>
+<p>Converts an entire list of columns to numeric using <code>clean_numeric()</code>.</p>
+<p><strong>Arguments</strong> - <code>df</code>: DataFrame to modify&nbsp;&nbsp; - <code>numeric_cols</code>: List of columns to convert&nbsp;&nbsp;</p>
+<p><strong>Returns</strong> - Updated DataFrame with numeric columns&nbsp;&nbsp;</p>
+<hr>
+</section>
+<section id="run_cleaning_pipelineurl-email" class="level2">
+<h2 class="anchored" data-anchor-id="run_cleaning_pipelineurl-email"><code>run_cleaning_pipeline(url, email)</code></h2>
+<p>Runs the complete cleaning pipeline:</p>
+<ol type="1">
+<li>Scrapes the Wikipedia table&nbsp;&nbsp;</li>
+<li>Drops unnecessary columns&nbsp;&nbsp;</li>
+<li>Renames columns&nbsp;&nbsp;</li>
+<li>Removes missing snowfall rows&nbsp;&nbsp;</li>
+<li>Cleans string columns&nbsp;&nbsp;</li>
+<li>Converts numeric columns&nbsp;&nbsp;</li>
+</ol>
+<p><strong>Arguments</strong> - <code>url</code>: Wikipedia ski resorts comparison URL&nbsp;&nbsp; - <code>email</code>: Contact email for scraper&nbsp;&nbsp;</p>
+<p><strong>Returns</strong> - Clean, analysis-ready DataFrame&nbsp;&nbsp;</p>
+<p><strong>Example</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> snowpack.cleaning <span class="im">import</span> run_cleaning_pipeline</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> run_cleaning_pipeline(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;&nbsp;url<span class="op">=</span><span class="st">"https://en.wikipedia.org/wiki/Comparison_of_North_American_ski_resorts"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>&nbsp;&nbsp;&nbsp;&nbsp;email<span class="op">=</span><span class="st">"example@byu.edu"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="analysis-module-analysis.py" class="level1">
+<h1>###Analysis Module (<code>analysis.py</code>)</h1>
+<section id="convert_snowfall_to_numericdf" class="level2">
+<h2 class="anchored" data-anchor-id="convert_snowfall_to_numericdf">convert_snowfall_to_numeric(df)</h2>
+<p>Converts the Average Annual Snowfall (inches) column to a numeric type. Invalid values are coerced to NaN.</p>
+<p><strong>Arguments</strong> - df: Input ski resort DataFrame</p>
+<p><strong>Returns</strong> - DataFrame with numeric snowfall column</p>
+</section>
+<section id="plot_snowfall_distributiondf" class="level2">
+<h2 class="anchored" data-anchor-id="plot_snowfall_distributiondf">plot_snowfall_distribution(df)</h2>
+<p>Plots a histogram and KDE curve showing the distribution of annual snowfall across all ski resorts.</p>
+<p><strong>Arguments</strong> - df: Dataset containing snowfall values</p>
+<p><strong>Returns</strong> - Displays a plot</p>
+</section>
+<section id="assign_regionsdf" class="level2">
+<h2 class="anchored" data-anchor-id="assign_regionsdf">assign_regions(df)</h2>
+<p>Maps each U.S. state or Canadian province into a geographic region (e.g., “Western US”, “Eastern Canada”).</p>
+<p><strong>Arguments</strong> - df: DataFrame with State/Province column</p>
+<p><strong>Returns</strong> - Updated DataFrame with a new Region column</p>
+</section>
+<section id="plot_snowfall_by_regiondf" class="level2">
+<h2 class="anchored" data-anchor-id="plot_snowfall_by_regiondf">plot_snowfall_by_region(df)</h2>
+<p>Creates a boxplot showing snowfall distributions for each geographic region.</p>
+<p><strong>Arguments</strong> - df: Dataset containing Region and snowfall values</p>
+<p><strong>Returns</strong> - Displays a plot</p>
+</section>
+<section id="plot_top10_resortsdf" class="level2">
+<h2 class="anchored" data-anchor-id="plot_top10_resortsdf">plot_top10_resorts(df)</h2>
+<ul>
+<li>Displays a horizontal barplot of the top 10 snowiest ski resorts.</li>
+</ul>
+<p><strong>Arguments</strong> - df: Dataset containing snowfall values</p>
+<p><strong>Returns</strong> - None (displays a plot)</p>
+</section>
+<section id="plot_state_average_snowfalldf" class="level2">
+<h2 class="anchored" data-anchor-id="plot_state_average_snowfalldf">plot_state_average_snowfall(df)</h2>
+<p>Computes mean snowfall per state/province and plots the results in descending order.</p>
+<p><strong>Arguments</strong> - df: Dataset with state/province and snowfall values</p>
+<p><strong>Returns</strong> - Displays a plot</p>
+</section>
+<section id="plot_snowfall_vs_elevationdf" class="level2">
+<h2 class="anchored" data-anchor-id="plot_snowfall_vs_elevationdf">plot_snowfall_vs_elevation(df)</h2>
+<p>Creates a scatterplot showing the relationship between peak elevation and annual snowfall. The top 5 snowiest resorts are labeled.</p>
+<p><strong>Arguments</strong> - df: Dataset containing elevation and snowfall</p>
+<p><strong>Returns</strong> - Displays a plot</p>
+</section>
+<section id="run_analysis_pipelinedf" class="level2">
+<h2 class="anchored" data-anchor-id="run_analysis_pipelinedf">run_analysis_pipeline(df)</h2>
+<p>Runs the full analysis pipeline: 1. Converts snowfall to numeric 2. Assigns geographic regions 3. Plots snowfall distribution 4. Plots snowfall by region 5. Plots top 10 resorts 6. Plots state averages 7. Plots snowfall vs.&nbsp;elevation</p>
+<p><strong>Arguments</strong> - df: Cleaned ski resort dataset</p>
+<p><strong>Returns</strong> - DataFrame after all analysis-ready transformations (numeric snowfall + region assigned)</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

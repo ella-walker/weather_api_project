@@ -61,5 +61,103 @@
     "title": "Getting Started",
     "section": "",
     "text": "Here is how you use my package:\n\nfrom weather_package.analysis import add\n\nprint(add(2, 19))\n\n21\n\n\n\nfrom weather_package import run_analysis_pipeline, run_cleaning_pipeline\n\ndf_clean = run_cleaning_pipeline(\n    url=\"https://en.wikipedia.org/wiki/Comparison_of_North_American_ski_resorts\",\n    email=\"wella2@byu.edu\"\n)\nrun_analysis_pipeline(df_clean)\n\nRunning cleaning pipeline...\n\n\n/Users/ellawalker/Documents/STAT 386/Project/weather_api_project/src/weather_package/cleaning.py:20: FutureWarning: Passing literal html to 'read_html' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.\n  tables = pd.read_html(r.text)\n\n\nCleaning complete.\nRunning analysis pipeline...\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/Users/ellawalker/Documents/STAT 386/Project/weather_api_project/src/weather_package/analysis.py:119: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(\n\n\n\n\n\n\n\n\n\n/Users/ellawalker/Documents/STAT 386/Project/weather_api_project/src/weather_package/analysis.py:151: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnalysis complete!\n\n\n\n\n\n\n\n\n\nResort Name\nNearest City\nState/Province\nPeak Elevation (ft)\nBase Elevation (ft)\nVertical Drop (ft)\nSkiable Area (acres)\nTotal Trails\nTotal Lifts\nAverage Annual Snowfall (inches)\nRegion\n\n\n\n\n0\nSki Bromont\nBromont\nQuebec\n1854.0\n590.0\n1264.0\n450.0\n141.0\n9.0\n190.0\nEastern Canada\n\n\n1\nApex Mountain Resort\nPenticton\nBritish Columbia\n7197.0\n5197.0\n2000.0\n1112.0\n79.0\n4.0\n236.0\nWestern Canada\n\n\n2\nCanyon Ski Area\nRed Deer\nAlberta\n2950.0\n2412.0\n538.0\n80.0\n23.0\n6.0\n45.0\nWestern Canada\n\n\n3\nFernie Alpine Resort\nFernie\nBritish Columbia\n7000.0\n3450.0\n3550.0\n2500.0\n142.0\n10.0\n360.0\nWestern Canada\n\n\n4\nMarble Mountain Ski Resort\nSteady Brook\nNewfoundland and Labrador\n1791.0\n33.0\n1759.0\n285.0\n40.0\n5.0\n192.0\nEastern Canada\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n460\nManning Park\nManning Park\nBritish Columbia\nNaN\nNaN\n1417.0\n140.0\nNaN\nNaN\n296.0\nWestern Canada\n\n\n461\nMount Baldy Ski Area\nOliver\nBritish Columbia\nNaN\nNaN\n1293.0\n600.0\nNaN\nNaN\n256.0\nWestern Canada\n\n\n462\nHarper Mountain\nKamloops\nBritish Columbia\nNaN\nNaN\n1400.0\n400.0\nNaN\nNaN\n156.0\nWestern Canada\n\n\n463\nLittle Ski Hill\nMcCall\nIdaho\n5600.0\n5195.0\n405.0\n50.0\n6.0\n1.0\n140.0\nWestern US\n\n\n464\nLookout Pass Ski Area\nMullan\nIdaho\n6150.0\n4500.0\n1650.0\n1023.0\n52.0\n5.0\n400.0\nWestern US\n\n\n\n\n398 rows × 11 columns"
+  },
+  {
+    "objectID": "Documentation.html",
+    "href": "Documentation.html",
+    "title": "Documentation",
+    "section": "",
+    "text": "This page documents all functions included in our Python package.   The functions are grouped into two modules:\n\ncleaning.py — scraping and cleaning raw ski resort data  \nanalysis.py — analysis utilities for summary statistics and visualizations"
+  },
+  {
+    "objectID": "Documentation.html#fetch_raw_tableurl-email",
+    "href": "Documentation.html#fetch_raw_tableurl-email",
+    "title": "Documentation",
+    "section": "fetch_raw_table(url, email)",
+    "text": "fetch_raw_table(url, email)\nScrapes the Wikipedia ski resort comparison table and returns the raw (uncleaned) DataFrame.\nArguments - url: The Wikipedia page URL   - email: Your contact email for the scraper’s User-Agent  \nReturns - Raw pandas.DataFrame containing the table data"
+  },
+  {
+    "objectID": "Documentation.html#remove_bracketstext",
+    "href": "Documentation.html#remove_bracketstext",
+    "title": "Documentation",
+    "section": "remove_brackets(text)",
+    "text": "remove_brackets(text)\nRemoves bracketed citations (e.g., [3]) from text fields.\nArguments - text: A string containing bracketed citation text  \nReturns - Cleaned string with citations removed"
+  },
+  {
+    "objectID": "Documentation.html#clean_numericval",
+    "href": "Documentation.html#clean_numericval",
+    "title": "Documentation",
+    "section": "clean_numeric(val)",
+    "text": "clean_numeric(val)\nRemoves non-numeric characters (commas, text, units) and converts values to float.\nArguments - val: A string or number to clean  \nReturns - float value or NaN"
+  },
+  {
+    "objectID": "Documentation.html#convert_numeric_columnsdf-numeric_cols",
+    "href": "Documentation.html#convert_numeric_columnsdf-numeric_cols",
+    "title": "Documentation",
+    "section": "convert_numeric_columns(df, numeric_cols)",
+    "text": "convert_numeric_columns(df, numeric_cols)\nConverts an entire list of columns to numeric using clean_numeric().\nArguments - df: DataFrame to modify   - numeric_cols: List of columns to convert  \nReturns - Updated DataFrame with numeric columns"
+  },
+  {
+    "objectID": "Documentation.html#run_cleaning_pipelineurl-email",
+    "href": "Documentation.html#run_cleaning_pipelineurl-email",
+    "title": "Documentation",
+    "section": "run_cleaning_pipeline(url, email)",
+    "text": "run_cleaning_pipeline(url, email)\nRuns the complete cleaning pipeline:\n\nScrapes the Wikipedia table  \nDrops unnecessary columns  \nRenames columns  \nRemoves missing snowfall rows  \nCleans string columns  \nConverts numeric columns  \n\nArguments - url: Wikipedia ski resorts comparison URL   - email: Contact email for scraper  \nReturns - Clean, analysis-ready DataFrame  \nExample\nfrom snowpack.cleaning import run_cleaning_pipeline\n\ndf = run_cleaning_pipeline(\n    url=\"https://en.wikipedia.org/wiki/Comparison_of_North_American_ski_resorts\",\n    email=\"example@byu.edu\"\n)"
+  },
+  {
+    "objectID": "Documentation.html#convert_snowfall_to_numericdf",
+    "href": "Documentation.html#convert_snowfall_to_numericdf",
+    "title": "Documentation",
+    "section": "convert_snowfall_to_numeric(df)",
+    "text": "convert_snowfall_to_numeric(df)\nConverts the Average Annual Snowfall (inches) column to a numeric type. Invalid values are coerced to NaN.\nArguments - df: Input ski resort DataFrame\nReturns - DataFrame with numeric snowfall column"
+  },
+  {
+    "objectID": "Documentation.html#plot_snowfall_distributiondf",
+    "href": "Documentation.html#plot_snowfall_distributiondf",
+    "title": "Documentation",
+    "section": "plot_snowfall_distribution(df)",
+    "text": "plot_snowfall_distribution(df)\nPlots a histogram and KDE curve showing the distribution of annual snowfall across all ski resorts.\nArguments - df: Dataset containing snowfall values\nReturns - Displays a plot"
+  },
+  {
+    "objectID": "Documentation.html#assign_regionsdf",
+    "href": "Documentation.html#assign_regionsdf",
+    "title": "Documentation",
+    "section": "assign_regions(df)",
+    "text": "assign_regions(df)\nMaps each U.S. state or Canadian province into a geographic region (e.g., “Western US”, “Eastern Canada”).\nArguments - df: DataFrame with State/Province column\nReturns - Updated DataFrame with a new Region column"
+  },
+  {
+    "objectID": "Documentation.html#plot_snowfall_by_regiondf",
+    "href": "Documentation.html#plot_snowfall_by_regiondf",
+    "title": "Documentation",
+    "section": "plot_snowfall_by_region(df)",
+    "text": "plot_snowfall_by_region(df)\nCreates a boxplot showing snowfall distributions for each geographic region.\nArguments - df: Dataset containing Region and snowfall values\nReturns - Displays a plot"
+  },
+  {
+    "objectID": "Documentation.html#plot_top10_resortsdf",
+    "href": "Documentation.html#plot_top10_resortsdf",
+    "title": "Documentation",
+    "section": "plot_top10_resorts(df)",
+    "text": "plot_top10_resorts(df)\n\nDisplays a horizontal barplot of the top 10 snowiest ski resorts.\n\nArguments - df: Dataset containing snowfall values\nReturns - None (displays a plot)"
+  },
+  {
+    "objectID": "Documentation.html#plot_state_average_snowfalldf",
+    "href": "Documentation.html#plot_state_average_snowfalldf",
+    "title": "Documentation",
+    "section": "plot_state_average_snowfall(df)",
+    "text": "plot_state_average_snowfall(df)\nComputes mean snowfall per state/province and plots the results in descending order.\nArguments - df: Dataset with state/province and snowfall values\nReturns - Displays a plot"
+  },
+  {
+    "objectID": "Documentation.html#plot_snowfall_vs_elevationdf",
+    "href": "Documentation.html#plot_snowfall_vs_elevationdf",
+    "title": "Documentation",
+    "section": "plot_snowfall_vs_elevation(df)",
+    "text": "plot_snowfall_vs_elevation(df)\nCreates a scatterplot showing the relationship between peak elevation and annual snowfall. The top 5 snowiest resorts are labeled.\nArguments - df: Dataset containing elevation and snowfall\nReturns - Displays a plot"
+  },
+  {
+    "objectID": "Documentation.html#run_analysis_pipelinedf",
+    "href": "Documentation.html#run_analysis_pipelinedf",
+    "title": "Documentation",
+    "section": "run_analysis_pipeline(df)",
+    "text": "run_analysis_pipeline(df)\nRuns the full analysis pipeline: 1. Converts snowfall to numeric 2. Assigns geographic regions 3. Plots snowfall distribution 4. Plots snowfall by region 5. Plots top 10 resorts 6. Plots state averages 7. Plots snowfall vs. elevation\nArguments - df: Cleaned ski resort dataset\nReturns - DataFrame after all analysis-ready transformations (numeric snowfall + region assigned)"
   }
 ]
