@@ -15,9 +15,9 @@ print(add(2, 19))
 ```{python}
 from weather_package import run_analysis_pipeline, run_cleaning_pipeline
 
-run_cleaning_pipeline(
-    url="https://example.com/data.csv",
+df_clean = run_cleaning_pipeline(
+    url="https://en.wikipedia.org/wiki/Comparison_of_North_American_ski_resorts",
     email="wella2@byu.edu"
 )
-run_analysis_pipeline()
+run_analysis_pipeline(df_clean)
 ```
