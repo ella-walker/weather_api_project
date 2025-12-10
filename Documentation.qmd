@@ -13,7 +13,7 @@ The functions are grouped into two modules:
 
 ---
 
-# ## Cleaning Module (`cleaning.py`)
+# Cleaning Module (`cleaning.py`)
 
 ## `fetch_raw_table(url, email)`
 Scrapes the Wikipedia ski resort comparison table and returns the raw (uncleaned) DataFrame.
@@ -92,7 +92,7 @@ df = run_cleaning_pipeline(
 )
 ```
 
-# ###Analysis Module (`analysis.py`)
+# Analysis Module (`analysis.py`)
 
 ## convert_snowfall_to_numeric(df)
 
