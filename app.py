@@ -82,7 +82,7 @@ def main() -> None:
         whereas southern regions have warmer temperatures due to their lower latitudes, 
         resulting in reduced snowfall.
         """)
-        st.image("plots_2/boxplot.png", use_container_width=True)
+        st.image("plots/boxplot.png", use_container_width=True)
 
         # --- 2. Correlation Heatmap ---
         st.write("### Correlation Heatmap")
@@ -93,7 +93,7 @@ def main() -> None:
         structure of a ski resort. There is a moderate correlation between total trails and 
         average snow fall.
         """)
-        st.image("plots_2/correlation_heatmap.png", use_container_width=True)
+        st.image("plots/correlation_heatmap.png", use_container_width=True)
 
         # --- 3. Snowfall Distribution ---
         st.write("### Distribution of Annual Snowfall")
@@ -102,7 +102,7 @@ def main() -> None:
         snowfall. This is left skewed where there are a few resorts that receive an unusually 
         high level of snowfall on average.
         """)
-        st.image("plots_2/distribution_snowfall.png", use_container_width=True)
+        st.image("plots/distribution_snowfall.png", use_container_width=True)
 
         # --- 4. Top 10 Resorts ---
         st.write("### Top 10 Resorts by Average Annual Snowfall")
@@ -118,7 +118,7 @@ def main() -> None:
         of 643 inches of snowfall each year. From these top 10 resorts, 3 of them were from Utah 
         (Alta, Brighton, & Snowbird)
         """)
-        st.image("plots_2/annual_snowfall.png", use_container_width=True)
+        st.image("plots/annual_snowfall.png", use_container_width=True)
         
         # --- 5. Annual Snowfall by State ---
         st.write("### Annual Snowfall by State")
@@ -132,7 +132,7 @@ def main() -> None:
         of how snowfall conditions vary across different areas and highlights which regions tend 
         to have resorts with the largest reported snowfall amounts.
         """)
-        st.image("plots_2/annual_snowfall.png", use_container_width=True)
+        st.image("plots/annual_snowfall.png", use_container_width=True)
 
         # --- 6. Elevation vs Snowfall ---
         st.write("### Peak Elevation vs Snowfall")
@@ -147,7 +147,7 @@ def main() -> None:
         positive trend observed in the plot. This pattern supports the idea that elevation is an 
         important environmental factor influencing resort-level snow accumulation.
         """)
-        st.image("plots_2/peak_elevation.png", use_container_width=True)
+        st.image("plots/peak_elevation.png", use_container_width=True)
 
 
 if __name__ == "__main__":
