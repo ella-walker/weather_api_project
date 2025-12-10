@@ -1,0 +1,170 @@
+[
+  {
+    "objectID": "TechnicalReport.html",
+    "href": "TechnicalReport.html",
+    "title": "Technical Report",
+    "section": "",
+    "text": "In our preliminary project proposal, we expressed interest in examining snowfall patterns and exploring the potential to predict snowfall for skiers. However, after evaluating the data available to us, we found that a different set of questions could be addressed more effectively. Specifically, we became interested in how ski resort characteristics, such as size, elevation and geographic location, relate to annual snowfall. We also aim to identify which resorts across the United States and Canada receive the greatest snowfall. Understanding these patterns can help skiers make more informed decisions when planning trips and selecting destinations that maximize their time on the snow. After implementing a full cleaning pipeline and running exploratory data analysis (EDA), we identified clear trends: Western Canada and the Western U.S. have the highest average annual snowfall, Utah and Washington consistently exhibit the highest average annual snowfall, and high elevation is moderately associated with higher snowfall. These findings can support tourism planning, resort benchmarking, and ultimately help skiers decide where to ski."
+  },
+  {
+    "objectID": "TechnicalReport.html#executive-summary",
+    "href": "TechnicalReport.html#executive-summary",
+    "title": "Technical Report",
+    "section": "",
+    "text": "In our preliminary project proposal, we expressed interest in examining snowfall patterns and exploring the potential to predict snowfall for skiers. However, after evaluating the data available to us, we found that a different set of questions could be addressed more effectively. Specifically, we became interested in how ski resort characteristics, such as size, elevation and geographic location, relate to annual snowfall. We also aim to identify which resorts across the United States and Canada receive the greatest snowfall. Understanding these patterns can help skiers make more informed decisions when planning trips and selecting destinations that maximize their time on the snow. After implementing a full cleaning pipeline and running exploratory data analysis (EDA), we identified clear trends: Western Canada and the Western U.S. have the highest average annual snowfall, Utah and Washington consistently exhibit the highest average annual snowfall, and high elevation is moderately associated with higher snowfall. These findings can support tourism planning, resort benchmarking, and ultimately help skiers decide where to ski."
+  },
+  {
+    "objectID": "TechnicalReport.html#project-context",
+    "href": "TechnicalReport.html#project-context",
+    "title": "Technical Report",
+    "section": "Project Context",
+    "text": "Project Context\nThe motivation behind this project was to build a complete end-to-end data science workflow, including data collection, cleaning, analysis, and documentation. The main stakeholders are recreational skiers, tourism boards, and data science learners seeking insights into regional snowfall trends. Success was defined by the ability to (1) assemble a reproducible data pipeline, (2) clean inconsistencies in scraped weather/resort data, (3) generate clear EDA visualizations, and (4) interpret distributional patterns across states and provinces."
+  },
+  {
+    "objectID": "TechnicalReport.html#data-sources",
+    "href": "TechnicalReport.html#data-sources",
+    "title": "Technical Report",
+    "section": "Data Sources",
+    "text": "Data Sources\n\n_Primary dataset: A consolidated CSV of North American ski resorts containing columns for resort name, state/province, elevation statistics, acres, lift counts, and average annual snowfall. (Source: LINK!!!)\n_Data access notes: All data was acquired through scraping Wikipedia. No licensing restrictions apply."
+  },
+  {
+    "objectID": "TechnicalReport.html#methodology",
+    "href": "TechnicalReport.html#methodology",
+    "title": "Technical Report",
+    "section": "Methodology",
+    "text": "Methodology\n\nData acquisition: For the data collection phase of our project, we initially planned to use the OpenWeatherMap API to obtain historical weather information. However, during preliminary testing we encountered both logistical constraints, such as rate limits and incomplete data coverage, and ethical considerations related to adhering to API usage policies. As a result, we chose to adopt an alternative data source. We ultimately collected our data from the Comparison of North American Ski Resorts page on Wikipedia. To extract the relevant information, we used the BeautifulSoup library in Python, which allowed us to systematically parse the page’s HTML structure and retrieve variables of interest. This approach ensured that our data collection process remained reproducible, transparent, and aligned with course guidelines for web scraping.\nCleaning pipeline: After web scraping the ski resort dataset from Wikipedia, the data required substantial data cleaning before the analysis could be performed. The original dataset included inconsistent column names, footnote markers, extra symbols, missing values, and non-numerical columns. The following steps were taken to prepare this dataset for analysis: Removed unnecessary columns The scraped data table included an extra column at the end that was not needed; it contained invaluable information related to our analysis. Therefore, this last column was removed. Renaming columns The remaining columns in the data table were renamed to standardized and descriptive variable names. Handling missing snowfall values Because snowfall is a central variable in this project, rows missing Average Annual Snowfall were removed. This prevented incomplete observations from biasing summary statistics and visualizations later in the process. Removing Wikipedia Footnotes and Brackets Many of the cells contained bracketed footnotes, which are common in Wikipedia tables. To remove these, we used regular expressions, which stripped out all bracketed content from every string column. This step was vital to our analysis because it ensured resort names, locations, and snowfall figures were clean and were ready to be analyzed. Cleaning Numeric columns Several of the numeric cells contained non-numeric characters such as commas, brackets, units, or parentheses. We created a function to extract only digits and decimal points and convert any of the values to floats. This allowed these columns to be used in statistical summaries and visualizations without type errors. Standardizing Categorical Columns Resort names, city names, and state/province fields were stripped of any leading or trailing whitespace. This prevented issues such as duplicate resort name that differ only by spacing. Final Dataset After doing all these cleaning steps, the dataset was ready to be analyzed. We saved the final dataset to a csv and then it was used for exploratory data analysis and visualizations.\nAnalysis workflow: Exploratory Data Analysis (EDA) was performed to evaluate: -Distribution of average annual snowfall -Mean snowfall by state/province -Relationships between peak elevation and snowfall -Basic geographic summarization (regional snowfall trends)\n\nCharts included: -Boxplot of average snowfall by region -Bar charts ranking states by snowfall -Scatter plot comparing snowfall vs. elevation -Histograms and boxplots to visualize distributions\n\nTooling: The project uses: -Python 3.11 -pandas, numpy, matplotlib, requests, seaborn, bs4, and streamlit -Development environment managed via uv -Tests written with pytest -A documented cleaning and analysis pipeline callable from the package root All code is fully reproducible via main.py or command-line execution."
+  },
+  {
+    "objectID": "TechnicalReport.html#results-diagnostics",
+    "href": "TechnicalReport.html#results-diagnostics",
+    "title": "Technical Report",
+    "section": "Results & Diagnostics",
+    "text": "Results & Diagnostics\nWe examined regional patterns in snowfall to determine which areas of North America receive the highest average levels. Our analysis shows that the Western United States and Western Canada experience substantially higher snowfall than other regions, while the Midwest and the Southeastern United States receive the least. These patterns are consistent with geographic and climatic expectations: western regions contain more mountainous terrain that promotes orographic precipitation, whereas southern regions have warmer temperatures due to their lower latitudes, resulting in reduced snowfall.\n\n\n\nBoxplot of Snowfall by Region\n\n\nWe were also curious about the correlation between certain numeric features of the data, total trails, total lifts, and average snowfall. We can see a high positive correlation between the number of trails and number of lifts. That makes sense, considering the structure of a ski resort. There is a moderate correlation between total trails and average snow fall.\n\n\n\nCorrelation Heatmap\n\n\nWe looked at the distribution of snowfall for the top 20 ski resorts with the highest snowfall. This is left skewed where there are a few resorts that receive an unusually high level of snowfall on average.\n\n\n\nDistribution of Average Annual Snowfall\n\n\nWe then looked at the top 10 resorts that had the highest peak elevation. Nine out of the top 10 resorts were in Colorado. This was a really interesting finding. It seems to be that Colorado has the steepest terrain. The peak elevation was ~ 12,000 - 13,000 for these Colorado resorts. For these resorts, the average annual snowfall ranged from 235 to 450 inches. It seems that these resorts that have high elevation also have higher average annual snowfall.\nAfter looking at the top 10 resorts for elevation, we were curious to see the top 10 resorts for average annual snowfall. The top resort was Alyeska Resort in Alaska with an average of 643 inches of snowfall each year. From these top 10 resorts, 3 of them were from Utah (Alta, Brighton, & Snowbird).\n\n\n\nTop 10 Resorts by Snowfall\n\n\nTo explore geographic differences in snowfall, we examined the Average Annual Snowfall (inches) column alongside the State/Province column. We created a bar plot that displays each state or province ranked by the snowfall values reported in our dataset. From this visualization, Utah shows the highest average annual snowfall in our dataset, followed by Washington and California. These rankings come directly from the average snowfall values listed for the resorts located in each region. This plot provides a quick snapshot of how snowfall conditions vary across different areas and highlights which regions tend to have resorts with the largest reported snowfall amounts.\n\n\n\nAverage Snowfall per State\n\n\nNext, we were interested to see how peak elevation and average snowfall are correlated. The scatterplot comparing average annual snowfall to peak elevation reveals a clear upward trend: resorts situated at higher elevations generally experience greater snowfall. While the relationship is not perfectly linear—there is still noticeable spread at each elevation level—the overall pattern suggests that elevation plays a meaningful role in increasing snowfall totals. Higher-altitude resorts likely benefit from colder temperatures and more favorable atmospheric conditions for sustained snowfall, which contributes to the positive trend observed in the plot. This pattern supports the idea that elevation is an important environmental factor influencing resort-level snow accumulation.\n\n\n\nAverage Snowfall vs. Peak Elevation"
+  },
+  {
+    "objectID": "TechnicalReport.html#discussion-next-steps",
+    "href": "TechnicalReport.html#discussion-next-steps",
+    "title": "Technical Report",
+    "section": "Discussion & Next Steps",
+    "text": "Discussion & Next Steps"
+  },
+  {
+    "objectID": "TechnicalReport.html#discussion-conclusion",
+    "href": "TechnicalReport.html#discussion-conclusion",
+    "title": "Technical Report",
+    "section": "Discussion & Conclusion",
+    "text": "Discussion & Conclusion\nOverall, our analysis provides a clear picture of how geography, terrain characteristics, and elevation shape snowfall patterns across North American ski resorts. The regional comparisons confirm well-established climatological expectations: western regions, particularly the Western United States and Western Canada, receive significantly more snowfall due to their mountainous landscapes and favorable weather systems. Meanwhile, regions such as the Midwest and Southeast receive considerably less snowfall, reflecting their lower elevations, warmer temperatures, and flatter topography. Our exploration of resort-level features also showed meaningful structural relationships within the data. The strong positive correlation between total trails and total lifts suggests that resort size and infrastructure tend to scale together. The moderate correlation between total trails and snowfall implies that resorts with higher snowfall may be able to support more extensive terrain, though this relationship is influenced by many other factors. The distributions of snowfall further highlight the variability between resorts. Most resorts fall within a typical range. However, there are some outliers - like Alyeska in Alaska. Elevation is a vital factor in explaining snowfall differences. Resorts that have the highest peak elevations tend to receive substantially more snowfall on average. The upward trend in the elevation–snowfall scatterplot supports the idea that colder temperatures and atmospheric conditions at higher altitudes lead to greater snow accumulation. This insight is reinforced by the fact that several top-elevation resorts also appear among the highest-snowfall locations. Skiers love some good snow. Therefore, skiers can use this analysis in determining where to ski that year, or even where to book a ski trip. By understanding which regions consistently receive the most snowfall—and how factors like elevation and resort size relate to snow conditions—skiers can better identify destinations that match their preferences.\n\nLimitations\nWhile this project can help skiers know where to ski and book ski trips, it still has several limitations. Because the dataset was sourced from Wikipedia, the accuracy and consistency of the reported snowfall values cannot be fully verified. Additionally, the table provides only average annual snowfall rather than historical records, which restricts our ability to examine trends over time or develop predictive models. Finally, the dataset includes only major ski resorts in North America, so our findings may not be generalizable to smaller resorts or those located in other regions.\n\n\nNext steps\nRecommended next steps: -Integrate multi-year snowfall trends to study variability -Add climate variables (temperature, latitude, precipitation) -Build predictive models to estimate snowfall or resort conditions -Enhance geographic analysis with mapping tools (e.g., Folium, geopandas)"
+  },
+  {
+    "objectID": "Tutorial.html",
+    "href": "Tutorial.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "Here is how you use my package:\n\nfrom weather_package.analysis import add\n\nprint(add(2, 19))\n\n21\n\n\n\nfrom weather_package import run_analysis_pipeline, run_cleaning_pipeline\n\ndf_clean = run_cleaning_pipeline(\n    url=\"https://en.wikipedia.org/wiki/Comparison_of_North_American_ski_resorts\",\n    email=\"wella2@byu.edu\"\n)\nrun_analysis_pipeline(df_clean)\n\nRunning cleaning pipeline...\n\n\n/Users/ellawalker/Documents/STAT 386/Project/weather_api_project/src/weather_package/cleaning.py:20: FutureWarning: Passing literal html to 'read_html' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.\n  tables = pd.read_html(r.text)\n\n\nCleaning complete.\nRunning analysis pipeline...\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n/Users/ellawalker/Documents/STAT 386/Project/weather_api_project/src/weather_package/analysis.py:119: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(\n\n\n\n\n\n\n\n\n\n/Users/ellawalker/Documents/STAT 386/Project/weather_api_project/src/weather_package/analysis.py:151: FutureWarning: \n\nPassing `palette` without assigning `hue` is deprecated and will be removed in v0.14.0. Assign the `y` variable to `hue` and set `legend=False` for the same effect.\n\n  sns.barplot(\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnalysis complete!\n\n\n\n\n\n\n\n\n\nResort Name\nNearest City\nState/Province\nPeak Elevation (ft)\nBase Elevation (ft)\nVertical Drop (ft)\nSkiable Area (acres)\nTotal Trails\nTotal Lifts\nAverage Annual Snowfall (inches)\nRegion\n\n\n\n\n0\nSki Bromont\nBromont\nQuebec\n1854.0\n590.0\n1264.0\n450.0\n141.0\n9.0\n190.0\nEastern Canada\n\n\n1\nApex Mountain Resort\nPenticton\nBritish Columbia\n7197.0\n5197.0\n2000.0\n1112.0\n79.0\n4.0\n236.0\nWestern Canada\n\n\n2\nCanyon Ski Area\nRed Deer\nAlberta\n2950.0\n2412.0\n538.0\n80.0\n23.0\n6.0\n45.0\nWestern Canada\n\n\n3\nFernie Alpine Resort\nFernie\nBritish Columbia\n7000.0\n3450.0\n3550.0\n2500.0\n142.0\n10.0\n360.0\nWestern Canada\n\n\n4\nMarble Mountain Ski Resort\nSteady Brook\nNewfoundland and Labrador\n1791.0\n33.0\n1759.0\n285.0\n40.0\n5.0\n192.0\nEastern Canada\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n460\nManning Park\nManning Park\nBritish Columbia\nNaN\nNaN\n1417.0\n140.0\nNaN\nNaN\n296.0\nWestern Canada\n\n\n461\nMount Baldy Ski Area\nOliver\nBritish Columbia\nNaN\nNaN\n1293.0\n600.0\nNaN\nNaN\n256.0\nWestern Canada\n\n\n462\nHarper Mountain\nKamloops\nBritish Columbia\nNaN\nNaN\n1400.0\n400.0\nNaN\nNaN\n156.0\nWestern Canada\n\n\n463\nLittle Ski Hill\nMcCall\nIdaho\n5600.0\n5195.0\n405.0\n50.0\n6.0\n1.0\n140.0\nWestern US\n\n\n464\nLookout Pass Ski Area\nMullan\nIdaho\n6150.0\n4500.0\n1650.0\n1023.0\n52.0\n5.0\n400.0\nWestern US\n\n\n\n\n398 rows × 11 columns"
+  },
+  {
+    "objectID": "Documentation.html",
+    "href": "Documentation.html",
+    "title": "Documentation",
+    "section": "",
+    "text": "This page documents all functions included in our Python package.   The functions are grouped into two modules:\n\ncleaning.py — scraping and cleaning raw ski resort data  \nanalysis.py — analysis utilities for summary statistics and visualizations"
+  },
+  {
+    "objectID": "Documentation.html#fetch_raw_tableurl-email",
+    "href": "Documentation.html#fetch_raw_tableurl-email",
+    "title": "Documentation",
+    "section": "fetch_raw_table(url, email)",
+    "text": "fetch_raw_table(url, email)\nScrapes the Wikipedia ski resort comparison table and returns the raw (uncleaned) DataFrame.\nArguments - url: The Wikipedia page URL   - email: Your contact email for the scraper’s User-Agent  \nReturns - Raw pandas.DataFrame containing the table data"
+  },
+  {
+    "objectID": "Documentation.html#remove_bracketstext",
+    "href": "Documentation.html#remove_bracketstext",
+    "title": "Documentation",
+    "section": "remove_brackets(text)",
+    "text": "remove_brackets(text)\nRemoves bracketed citations (e.g., [3]) from text fields.\nArguments - text: A string containing bracketed citation text  \nReturns - Cleaned string with citations removed"
+  },
+  {
+    "objectID": "Documentation.html#clean_numericval",
+    "href": "Documentation.html#clean_numericval",
+    "title": "Documentation",
+    "section": "clean_numeric(val)",
+    "text": "clean_numeric(val)\nRemoves non-numeric characters (commas, text, units) and converts values to float.\nArguments - val: A string or number to clean  \nReturns - float value or NaN"
+  },
+  {
+    "objectID": "Documentation.html#convert_numeric_columnsdf-numeric_cols",
+    "href": "Documentation.html#convert_numeric_columnsdf-numeric_cols",
+    "title": "Documentation",
+    "section": "convert_numeric_columns(df, numeric_cols)",
+    "text": "convert_numeric_columns(df, numeric_cols)\nConverts an entire list of columns to numeric using clean_numeric().\nArguments - df: DataFrame to modify   - numeric_cols: List of columns to convert  \nReturns - Updated DataFrame with numeric columns"
+  },
+  {
+    "objectID": "Documentation.html#run_cleaning_pipelineurl-email",
+    "href": "Documentation.html#run_cleaning_pipelineurl-email",
+    "title": "Documentation",
+    "section": "run_cleaning_pipeline(url, email)",
+    "text": "run_cleaning_pipeline(url, email)\nRuns the complete cleaning pipeline:\n\nScrapes the Wikipedia table  \nDrops unnecessary columns  \nRenames columns  \nRemoves missing snowfall rows  \nCleans string columns  \nConverts numeric columns  \n\nArguments - url: Wikipedia ski resorts comparison URL   - email: Contact email for scraper  \nReturns - Clean, analysis-ready DataFrame  \nExample\nfrom snowpack.cleaning import run_cleaning_pipeline\n\ndf = run_cleaning_pipeline(\n    url=\"https://en.wikipedia.org/wiki/Comparison_of_North_American_ski_resorts\",\n    email=\"example@byu.edu\"\n)"
+  },
+  {
+    "objectID": "Documentation.html#convert_snowfall_to_numericdf",
+    "href": "Documentation.html#convert_snowfall_to_numericdf",
+    "title": "Documentation",
+    "section": "convert_snowfall_to_numeric(df)",
+    "text": "convert_snowfall_to_numeric(df)\nConverts the Average Annual Snowfall (inches) column to a numeric type. Invalid values are coerced to NaN.\nArguments - df: Input ski resort DataFrame\nReturns - DataFrame with numeric snowfall column"
+  },
+  {
+    "objectID": "Documentation.html#plot_snowfall_distributiondf",
+    "href": "Documentation.html#plot_snowfall_distributiondf",
+    "title": "Documentation",
+    "section": "plot_snowfall_distribution(df)",
+    "text": "plot_snowfall_distribution(df)\nPlots a histogram and KDE curve showing the distribution of annual snowfall across all ski resorts.\nArguments - df: Dataset containing snowfall values\nReturns - Displays a plot"
+  },
+  {
+    "objectID": "Documentation.html#assign_regionsdf",
+    "href": "Documentation.html#assign_regionsdf",
+    "title": "Documentation",
+    "section": "assign_regions(df)",
+    "text": "assign_regions(df)\nMaps each U.S. state or Canadian province into a geographic region (e.g., “Western US”, “Eastern Canada”).\nArguments - df: DataFrame with State/Province column\nReturns - Updated DataFrame with a new Region column"
+  },
+  {
+    "objectID": "Documentation.html#plot_snowfall_by_regiondf",
+    "href": "Documentation.html#plot_snowfall_by_regiondf",
+    "title": "Documentation",
+    "section": "plot_snowfall_by_region(df)",
+    "text": "plot_snowfall_by_region(df)\nCreates a boxplot showing snowfall distributions for each geographic region.\nArguments - df: Dataset containing Region and snowfall values\nReturns - Displays a plot"
+  },
+  {
+    "objectID": "Documentation.html#plot_top10_resortsdf",
+    "href": "Documentation.html#plot_top10_resortsdf",
+    "title": "Documentation",
+    "section": "plot_top10_resorts(df)",
+    "text": "plot_top10_resorts(df)\n\nDisplays a horizontal barplot of the top 10 snowiest ski resorts.\n\nArguments - df: Dataset containing snowfall values\nReturns - None (displays a plot)"
+  },
+  {
+    "objectID": "Documentation.html#plot_state_average_snowfalldf",
+    "href": "Documentation.html#plot_state_average_snowfalldf",
+    "title": "Documentation",
+    "section": "plot_state_average_snowfall(df)",
+    "text": "plot_state_average_snowfall(df)\nComputes mean snowfall per state/province and plots the results in descending order.\nArguments - df: Dataset with state/province and snowfall values\nReturns - Displays a plot"
+  },
+  {
+    "objectID": "Documentation.html#plot_snowfall_vs_elevationdf",
+    "href": "Documentation.html#plot_snowfall_vs_elevationdf",
+    "title": "Documentation",
+    "section": "plot_snowfall_vs_elevation(df)",
+    "text": "plot_snowfall_vs_elevation(df)\nCreates a scatterplot showing the relationship between peak elevation and annual snowfall. The top 5 snowiest resorts are labeled.\nArguments - df: Dataset containing elevation and snowfall\nReturns - Displays a plot"
+  },
+  {
+    "objectID": "Documentation.html#run_analysis_pipelinedf",
+    "href": "Documentation.html#run_analysis_pipelinedf",
+    "title": "Documentation",
+    "section": "run_analysis_pipeline(df)",
+    "text": "run_analysis_pipeline(df)\nRuns the full analysis pipeline: 1. Converts snowfall to numeric 2. Assigns geographic regions 3. Plots snowfall distribution 4. Plots snowfall by region 5. Plots top 10 resorts 6. Plots state averages 7. Plots snowfall vs. elevation\nArguments - df: Cleaned ski resort dataset\nReturns - DataFrame after all analysis-ready transformations (numeric snowfall + region assigned)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "My Python Package!",
+    "section": "",
+    "text": "Here is a website all about my package for STAT 386!\nDocumentation here.\nGet started here.\nReview the technical report."
+  }
+]

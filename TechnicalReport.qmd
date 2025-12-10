@@ -67,29 +67,29 @@ All code is fully reproducible via main.py or command-line execution.
 
 We examined regional patterns in snowfall to determine which areas of North America receive the highest average levels. Our analysis shows that the Western United States and Western Canada experience substantially higher snowfall than other regions, while the Midwest and the Southeastern United States receive the least. These patterns are consistent with geographic and climatic expectations: western regions contain more mountainous terrain that promotes orographic precipitation, whereas southern regions have warmer temperatures due to their lower latitudes, resulting in reduced snowfall.
 
-**insert plot**
+![Boxplot of Snowfall by Region](plots/boxplot.png)
 
 We were also curious about the correlation between certain numeric features of the data, total trails, total lifts, and average snowfall. We can see a high positive correlation between the number of trails and number of lifts. That makes sense, considering the structure of a ski resort. There is a moderate correlation between total trails and average snow fall. 
 
-**insert plot**
+![Correlation Heatmap](plots/correlation_heatmap.png)
 
 We looked at the distribution of snowfall for the top 20 ski resorts with the highest snowfall. This is left skewed where there are a few resorts that receive an unusually high level of snowfall on average.
 
-**insert plot**
+![Distribution of Average Annual Snowfall](plots/distribution_snowfall.png)
 
 We then looked at the top 10 resorts that had the highest peak elevation. Nine out of the top 10 resorts were in Colorado. This was a really interesting finding. It seems to be that Colorado has the steepest terrain. The peak elevation was ~ 12,000 - 13,000 for these Colorado resorts. For these resorts, the average annual snowfall ranged from 235 to 450 inches. It seems that these resorts that have high elevation also have higher average annual snowfall. 
 	
 After looking at the top 10 resorts for elevation, we were curious to see the top 10 resorts for average annual snowfall. The top resort was Alyeska Resort in Alaska with an average of 643 inches of snowfall each year. From these top 10 resorts, 3 of them were from Utah (Alta, Brighton, & Snowbird). 
 
-**insert plot**
+![Top 10 Resorts by Snowfall](plots/annual_snowfall.png)
 
 To explore geographic differences in snowfall, we examined the Average Annual Snowfall (inches) column alongside the State/Province column. We created a bar plot that displays each state or province ranked by the snowfall values reported in our dataset. From this visualization, Utah shows the highest average annual snowfall in our dataset, followed by Washington and California. These rankings come directly from the average snowfall values listed for the resorts located in each region. This plot provides a quick snapshot of how snowfall conditions vary across different areas and highlights which regions tend to have resorts with the largest reported snowfall amounts.
 
-**insert plot**
+![Average Snowfall per State](plots/snowfall_per_state.png)
 
 Next, we were interested to see how peak elevation and average snowfall are correlated. The scatterplot comparing average annual snowfall to peak elevation reveals a clear upward trend: resorts situated at higher elevations generally experience greater snowfall. While the relationship is not perfectly linear—there is still noticeable spread at each elevation level—the overall pattern suggests that elevation plays a meaningful role in increasing snowfall totals. Higher-altitude resorts likely benefit from colder temperatures and more favorable atmospheric conditions for sustained snowfall, which contributes to the positive trend observed in the plot. This pattern supports the idea that elevation is an important environmental factor influencing resort-level snow accumulation.
 
-**insert plot**
+![Average Snowfall vs. Peak Elevation](plots/peak_elevation.png)
 
 
 ## Discussion & Next Steps

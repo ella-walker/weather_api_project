@@ -9,3 +9,5 @@ Documentation [here](Documentation.qmd).
 Get started [here](Tutorial.qmd).
 
 Review the [technical report](TechnicalReport.qmd).
+
+This website was created by Sammi Hilton and Ella Walker
