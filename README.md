@@ -1,6 +1,8 @@
 # ⛷️ Ski Resort Snowfall Analysis  
 A Python package for cleaning, exploring, and analyzing ski resort snowfall data. This project follows the full data-science pipeline: data collection, cleaning/wrangling, exploratory data analysis (EDA), and documentation.
 
+Here is the link to our website containing the Technical Report, Tutorial, and Documentation: https://ella-walker.github.io/weather_api_project/
+
 ## Features
 - **Data Cleaning**: Functions to clean and preprocess snowfall data.
 - **Exploratory Data Analysis**: Tools to visualize and analyze snowfall trends.
